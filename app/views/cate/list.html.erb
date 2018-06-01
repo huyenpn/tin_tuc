@@ -1,0 +1,16 @@
+<p><%= flash[:notice]%></p>
+<h1>Danh sách bài viết</h1>
+<% if @cates.empty? %>
+  <p>không có gì</p>
+<% else%>
+  <ul>
+  <% @cates.each do |i| %>
+    <li><%= link_to i.name, {:action => 'show', :id => i.id , :slug => i.slug}  %>
+      <%= link_to 'Edit', {:action => 'edit', :id => i.id } %>
+      <%= link_to 'Delete', {:action => 'delete', :id => i.id }, :class => 'delete' %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
+
+

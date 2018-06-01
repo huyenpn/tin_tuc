@@ -1,0 +1,14 @@
+Update Category
+<% if flash[:errors] %>
+  <% flash[:errors].each do |i|%>
+    <p><%= i %></p>
+  <% end %>
+<% end %>
+<%= form_for @cate, :url => {:action => "update", :id => @cate}, :method => :POST do |c| %>
+  <%= label_tag('Name') %>
+  <%= c.text_field :name %>
+  <%= label_tag 'Description' %>
+  <%= c.text_area :description %>
+  <%= submit_tag 'Update' %>
+<% end %>
+<%= link_to 'Back', {:action => 'list'} %>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tạp chí doanh nhân online</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Saira:300,400,500,600,700&amp;subset=vietnamese" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <div class="logo">
+      <h1 title="Tạp chí doanh nhân"><%= link_to image_tag('img/logo.png', :alt =>  "Tạp chí doanh nhân", :class =>"img-responsive") , root_path, :title => 'Tạp chí doanh nhân'%></h1>
+    </div>
+    <nav class="menu">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-16">
+            <ul>
+              <% @cates.each do |i| %>
+              <li><%= link_to i.name , :controller => 'cate', :action => 'show', :id => i.id %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <%= yield %>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-16 col-md-5">
+          <figure><img src="img/magazine.png" alt="Tạp chí doanh nhân"></figure>
+        </div>
+        <div class="col-xs-16 col-md-8">
+          <div class="box">
+            <a href="#" class="booking">đặt báo</a>
+            <p>Tổng biên tập: <span>Phạm Ngọc Tuấn</span></p>
+            <p>© Bản quyền thuộc về Doanh Nhân Online</p>
+            <p>Chuyên trang của báo Diễn đàn Doanh nghiệp</p>
+            <p>Cơ quan chủ quản: Phòng Thương mại và Công nghiệp Việt Nam</p>
+            <p>Giấy phép xuất bản số: 2034/GP-BTTTT ngày 30/11/2011</p>
+            <p style="font-weight: 500; color: #330000">Cấm sao chép dưới mọi hình thức nếu không có sự chấp thuận bằng văn bản</p>
+            <hr>
+            <p  style="margin-top: 15px">Tel: (+84) 3 868 9568</p>
+            <p>Fax: (+84) 3 868 9569</p>
+            <p>Hotline: 0888 265 778</p>
+            <p>Email: trungnv@lemediavn.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
